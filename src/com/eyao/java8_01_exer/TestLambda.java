@@ -43,6 +43,9 @@ public class TestLambda {
 
         String s1 = strHandler("abcdE", (str) -> str.toUpperCase());
         System.out.println(s1);
+
+        String s2 = strHandler("你很厉害哦", (str) -> str.substring(2, 4));
+        System.out.println(s2);
     }
 
     // 需求：用于处理字符串
@@ -50,5 +53,16 @@ public class TestLambda {
         return mf.getValue(str);
     }
 
+    @Test
+    public void test3() {
+        op(100L, 200L, (x, y) -> x + y);
+
+        op(100L, 200L, (x, y) -> x * y);
+    }
+
+    // 需求：对于两个Long 型数据类型进行处理
+    public void op(Long l1, Long l2, MyFun2<Long, Long> mf) {
+        System.out.println(mf.getValue(l1, l2));
+    }
 
 }
