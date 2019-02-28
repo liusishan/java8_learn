@@ -1,9 +1,7 @@
 package com.eyao.java8_01;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.junit.Test;
 
-import javax.xml.transform.Source;
 import java.util.*;
 
 /**
@@ -111,10 +109,17 @@ public class TestLambda {
                 return employee.getSalary() <= 5000;
             }
         });
+
         for (Employee employee : list) {
             System.out.println(employee);
         }
     }
 
+    // 优化方式三：lambda 表达式
+    @Test
+    public void test7() {
+        List<Employee> employees = filterEmployee(this.employees, (e) -> e.getSalary() >= 5000);
+        employees.forEach(System.out::println);
+    }
 
 }
