@@ -122,4 +122,18 @@ public class TestLambda {
         employees.forEach(System.out::println);
     }
 
+    // 优化方式四：Stream API
+    @Test
+    public void test8() {
+        employees.stream()
+                .filter((e -> e.getSalary() >= 5000))
+                .limit(2)
+                .forEach(System.out::println);
+
+        System.out.println("---------------------");
+
+        employees.stream()
+                .map(Employee::getName)
+                .forEach(System.out::println);
+    }
 }
