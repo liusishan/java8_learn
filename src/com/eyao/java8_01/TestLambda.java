@@ -101,5 +101,20 @@ public class TestLambda {
         return emps;
     }
 
+    // 优化方式二：匿名内部类
+    @Test
+    public void test6() {
+
+        List<Employee> list = filterEmployee(this.employees, new MyPredicate<Employee>() {
+            @Override
+            public boolean test(Employee employee) {
+                return employee.getSalary() <= 5000;
+            }
+        });
+        for (Employee employee : list) {
+            System.out.println(employee);
+        }
+    }
+
 
 }
