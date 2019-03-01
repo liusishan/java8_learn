@@ -34,6 +34,34 @@ public class TestStreamAPI2 {
     // 中间操作
 
     /*
+    排序：
+        sorted()——自然排序(comparable)
+        sorted(Comparator com)——定制排序(comparator)
+     */
+
+    @Test
+    public void test7() {
+        List<String> list = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");
+
+        list.stream()
+                .sorted()
+                .forEach(System.out::println);
+
+        System.out.println("---------------------");
+
+        employees.stream()
+                .sorted((e1, e2) -> {
+                    if (e1.getAge() == e2.getAge()) {
+                        return e1.getName().compareTo(e2.getName());
+                    } else {
+                        return Integer.compare(e1.getAge(), e2.getAge());
+                    }
+                })
+                .forEach(System.out::println);
+    }
+
+
+    /*
      映射
         map——接收 Lambda ， 将元素转换成其他形式或提取信息。接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。
         flatMap——接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流
@@ -70,7 +98,7 @@ public class TestStreamAPI2 {
     }
 
     @Test
-    public  void test6(){
+    public void test6() {
 
         List<String> list = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");
 
