@@ -31,11 +31,11 @@ public class TestLambda {
     }
 
     List<Employee> employees = Arrays.asList(
-            new Employee("张三", 18, 9999.99),
-            new Employee("李四", 38, 7777.99),
-            new Employee("王五", 39, 8888.88),
-            new Employee("赵六", 58, 5555.99),
-            new Employee("田七", 8, 3333.99)
+            new Employee(10, "张三", 18, 9999.99),
+            new Employee(9, "李四", 38, 7777.99),
+            new Employee(8, "王五", 39, 8888.88),
+            new Employee(7, "赵六", 58, 5555.99),
+            new Employee(6, "田七", 8, 3333.99)
     );
 
     // 需求:获取当前公司中员工年龄大于35的员工
