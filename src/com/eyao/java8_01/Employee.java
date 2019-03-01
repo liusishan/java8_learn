@@ -1,5 +1,7 @@
 package com.eyao.java8_01;
 
+import java.util.Objects;
+
 /**
  * @Auther: lss
  * @Date: 2019/2/28 10:03
@@ -24,6 +26,7 @@ public class Employee {
         this.age = age;
         this.salary = salary;
     }
+
     public Employee(String name, int age, double salary) {
         this.name = name;
         this.age = age;
@@ -70,5 +73,22 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id &&
+                age == employee.age &&
+                Double.compare(employee.salary, salary) == 0 &&
+                Objects.equals(name, employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, age, salary);
     }
 }
