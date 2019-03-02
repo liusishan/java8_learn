@@ -62,4 +62,30 @@ public class TestOptional {
         Employee emp = op.get();
         System.out.println(emp);
     }
+
+    // 例题
+    @Test
+    public void test5() {
+//        Man man = new Man();
+//        String n = getGodnessName(man);
+//        System.out.println(n);
+        Optional<Godness> godness = Optional.ofNullable(new Godness("波多老师"));
+        Optional<NewMan> op = Optional.ofNullable(new NewMan(godness));
+
+        String str = getGodnessName2(op);
+        System.out.println(str);
+    }
+
+    public String getGodnessName2(Optional<NewMan> man) {
+        return man.orElse(new NewMan())
+                .getGodness()
+                .orElse(new Godness("苍老师"))
+                .getName();
+    }
+
+    // 需求：获取一个男人心中女神的名字
+    public String getGodnessName(Man man) {
+        return man.getGod().getName();
+    }
+
 }
